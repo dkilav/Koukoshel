@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Многостраничный сайт</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="alpine.js" defer></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="swiper-bundle.min.css">
+  <link rel="stylesheet" href="tw-elements.min.css">
+  <script src="swiper-bundle.min.js"></script>
+  <link href="output.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="swiper max-w-6xl h-full mx-auto py-24">
+
+  <div class="swiper-wrapper max-w-6xl mx-auto">
+
+    <div class="swiper-slide mx-auto">
+      <video class="max-w-6xl h-full mx-auto" playsinline autoplay muted loop>
+        <source class="" src="https://tecdn.b-cdn.net/img/video/Tropical.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="swiper-slide mx-auto">
+      <video class="max-w-6xl h-full mx-auto" playsinline autoplay muted loop>
+        <source class="" src="https://tecdn.b-cdn.net/img/video/Lines.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="swiper-slide mx-auto">
+      <video class="max-w-6xl h-full mx-auto" playsinline autoplay muted loop>
+        <source class="" src="https://tecdn.b-cdn.net/img/video/forest.mp4" type="video/mp4" />
+      </video>
+    </div>
+    ...
+  </div>
+
+  <div class="swiper-pagination"></div>
+
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+
+  <div class="swiper-scrollbar"></div>
+</div>
+
+
+
+
+  <div class="max-w-9xl w-full mx-auto">
+    <header x-data="{ open: false }">
+      <nav class="navbar flex justify-between px-12 max-w-9xl mx-auto">
+        <div class="navbar-brand">
+           <a href="#" class="navbar-item text-4xl text-blue-500 font-bold italic">Логотип</a> 
+          <p href="#" class='navbar-burger' @click='open = !open'>
+            <span></span>
+            <span></span>
+            <span></span>
+          </p>
+        </div>
+        <div class="navbar-menu" :class="{ 'is-active': open }">
+          <div class="navbar-end space-x-4 hidden lg:flex  text-3xl text-red-500 font-bold italic">
+            <a href="#" class="navbar-item">Главная</a>
+            <a href="#" class="navbar-item">О нас</a>
+            <a href="#" class="navbar-item">Услуги</a>
+            <a href="#" class="navbar-item">Контакты</a>
+          </div> 
+        </div>
+      </nav>
+    </header>
+
+    <!-- Остальное содержимое страницы -->
+    <main class="max-w-9xl w-full mx-auto space-y-10">
+      <section class="max-w-7xl mx-auto">
+       <div class="grid md:grid-cols-3 sm:grid-cols-1 max-w-5xl mx-auto justify-center gap-4">
+        <img src="img/1.png" class="mx-auto" alt="">
+        <img src="img/2.png" class="mx-auto" alt="">
+        <img src="img/3.png" class="mx-auto" alt="">
+       </div>
+      </section>
+      <section class="bg-blue-500 flex justify-center mx-auto p-12 h-[1000px]">Doy</section>
+      <section class="bg-yellow-500 flex justify-center mx-auto p-12 h-[1000px]">Trey</section>
+      <section class="bg-green-500 flex justify-center mx-auto p-12 h-[1000px]">Patru</section>
+    </main>
+<div class="bg-gray-100 h-screen w-screen flex justify-center">
+  <div class="mr-8">
+
+    <h1 class="font-medium max-w-xl mx-auto pt-10 pb-4">Smooth Accordion</h1>
+    <div class="bg-white max-w-xl mx-auto border border-gray-200" x-data="{selected:1}">
+      <ul class="shadow-box">
+
+        <li class="relative border-b border-gray-200">
+
+          <button type="button" class="w-full px-8 py-6 text-left"
+            @click="selected !== 1 ? selected = 1 : selected = null">
+            <div class="flex items-center justify-between">
+              <span>
+                Should I use reCAPTCHA v2 or v3? </span>
+              <span class="ico-plus"></span>
+            </div>
+          </button>
+
+          <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1"
+            x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+            <div class="p-6">
+              <p>reCAPTCHA v2 is not going away! We will continue to fully support and improve security and usability
+                for v2.</p>
+              <p>reCAPTCHA v3 is intended for power users, site owners that want more data about their traffic, and for
+                use cases in which it is not appropriate to show a challenge to the user.</p>
+              <p>For example, a registration page might still use reCAPTCHA v2 for a higher-friction challenge, whereas
+                more common actions like sign-in, searches, comments, or voting might use reCAPTCHA v3. To see more
+                details, see the reCAPTCHA v3 developer guide.</p>
+            </div>
+          </div>
+
+        </li>
+
+
+        <li class="relative border-b border-gray-200">
+
+          <button type="button" class="w-full px-8 py-6 text-left"
+            @click="selected !== 2 ? selected = 2 : selected = null">
+            <div class="flex items-center justify-between">
+              <span>
+                I'd like to run automated tests with reCAPTCHA. What should I do? </span>
+              <span class="ico-plus"></span>
+            </div>
+          </button>
+
+          <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container2"
+            x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+            <div class="p-6">
+              <p>For reCAPTCHA v3, create a separate key for testing environments. Scores may not be accurate as
+                reCAPTCHA v3 relies on seeing real traffic.</p>
+              <p>For reCAPTCHA v2, use the following test keys. You will always get No CAPTCHA and all verification
+                requests will pass.</p>
+            </div>
+          </div>
+
+        </li>
+
+
+        <li class="relative border-b border-gray-200">
+
+          <button type="button" class="w-full px-8 py-6 text-left"
+            @click="selected !== 3 ? selected = 3 : selected = null">
+            <div class="flex items-center justify-between">
+              <span>
+                Can I run reCAPTCHA v2 and v3 on the same page? </span>
+              <span class="ico-plus"></span>
+            </div>
+          </button>
+
+          <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container3"
+            x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''">
+            <div class="p-6">
+              <p>To do this, load the v3 site key as documented, and then explicitly render v2 using grecaptcha.render.
+              </p>
+              <p>You are allowed to hide the badge as long as you include the reCAPTCHA branding visibly in the user
+                flow. Please include the following text:</p>
+              <p>Yes, please use "www.recaptcha.net" in your code in circumstances when "www.google.com" is not
+                accessible.</p>
+              <ul>
+                <li>First, replace &lt;script src="https://www.google.com/recaptcha/api.js" async
+                  defer&gt;&lt;/script&gt; with &lt;script src="https://www.recaptcha.net/recaptcha/api.js" async
+                  defer&gt;&lt;/script&gt;</li>
+                <li>After that, apply the same to everywhere else that uses "www.google.com/recaptcha/" on your site.
+                </li>
+              </ul>
+              <p>After that, apply the same to everywhere else that uses "www.google.com/recaptcha/" on your site.</p>
+            </div>
+          </div>
+
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="ml-8">
+
+    <h1 class="font-medium max-w-xl mx-auto pt-10 pb-4">Smooth Collapse</h1>
+    <div class="bg-white max-w-xl mx-auto border border-gray-200">
+      <ul class="shadow-box">
+
+        <li class="relative border-b border-gray-200" x-data="{selected:null}">
+
+          <button type="button" class="w-full px-8 py-6 text-left"
+            @click="selected !== 1 ? selected = 1 : selected = null">
+            <div class="flex items-center justify-between">
+              <span>
+                Should I use reCAPTCHA v2 or v3? </span>
+              <span class="ico-plus"></span>
+            </div>
+          </button>
+
+          <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container1"
+            x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+            <div class="p-6">
+              <p>reCAPTCHA v2 is not going away! We will continue to fully support and improve security and usability
+                for v2.</p>
+              <p>reCAPTCHA v3 is intended for power users, site owners that want more data about their traffic, and for
+                use cases in which it is not appropriate to show a challenge to the user.</p>
+              <p>For example, a registration page might still use reCAPTCHA v2 for a higher-friction challenge, whereas
+                more common actions like sign-in, searches, comments, or voting might use reCAPTCHA v3. To see more
+                details, see the reCAPTCHA v3 developer guide.</p>
+            </div>
+          </div>
+
+        </li>
+
+
+        <li class="relative border-b border-gray-200" x-data="{selected:null}">
+
+          <button type="button" class="w-full px-8 py-6 text-left"
+            @click="selected !== 2 ? selected = 2 : selected = null">
+            <div class="flex items-center justify-between">
+              <span>
+                I'd like to run automated tests with reCAPTCHA. What should I do? </span>
+              <span class="ico-plus"></span>
+            </div>
+          </button>
+
+          <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container2"
+            x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+            <div class="p-6">
+              <p>For reCAPTCHA v3, create a separate key for testing environments. Scores may not be accurate as
+                reCAPTCHA v3 relies on seeing real traffic.</p>
+              <p>For reCAPTCHA v2, use the following test keys. You will always get No CAPTCHA and all verification
+                requests will pass.</p>
+            </div>
+          </div>
+
+        </li>
+
+
+        <li class="relative border-b border-gray-200" x-data="{selected:null}">
+
+          <button type="button" class="w-full px-8 py-6 text-left"
+            @click="selected !== 3 ? selected = 3 : selected = null">
+            <div class="flex items-center justify-between">
+              <span>
+                Can I run reCAPTCHA v2 and v3 on the same page? </span>
+              <span class="ico-plus"></span>
+            </div>
+          </button>
+
+          <div class="relative overflow-hidden transition-all max-h-0 duration-700" style="" x-ref="container3"
+            x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''">
+            <div class="p-6">
+              <p>To do this, load the v3 site key as documented, and then explicitly render v2 using grecaptcha.render.
+              </p>
+              <p>You are allowed to hide the badge as long as you include the reCAPTCHA branding visibly in the user
+                flow. Please include the following text:</p>
+              <p>Yes, please use "www.recaptcha.net" in your code in circumstances when "www.google.com" is not
+                accessible.</p>
+              <ul>
+                <li>First, replace &lt;script src="https://www.google.com/recaptcha/api.js" async
+                  defer&gt;&lt;/script&gt; with &lt;script src="https://www.recaptcha.net/recaptcha/api.js" async
+                  defer&gt;&lt;/script&gt;</li>
+                <li>After that, apply the same to everywhere else that uses "www.google.com/recaptcha/" on your site.
+                </li>
+              </ul>
+              <p>After that, apply the same to everywhere else that uses "www.google.com/recaptcha/" on your site.</p>
+            </div>
+          </div>
+
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</div>
+<div id="carouselExampleCaptions" class="relative" data-te-carousel-init data-te-ride="carousel">
+  <div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+    data-te-carousel-indicators>
+    <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="0" data-te-carousel-active
+      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="1"
+      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+      aria-label="Slide 2"></button>
+    <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="2"
+      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+      aria-label="Slide 3"></button>
+  </div>
+  <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+    <div
+      class="relative float-left -mr-[100%] hidden w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-te-carousel-fade data-te-carousel-item data-te-carousel-active>
+      <video class="w-full" autoplay loop muted>
+        <source src="https://tecdn.b-cdn.net/img/video/Tropical.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
+        <h5 class="text-xl">First slide label</h5>
+        <p>
+          Some representative placeholder content for the first slide.
+        </p>
+      </div>
+    </div>
+    <div
+      class="relative float-left -mr-[100%] hidden w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-te-carousel-fade data-te-carousel-item>
+      <video class="w-full" autoplay loop muted>
+        <source src="https://tecdn.b-cdn.net/img/video/forest.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
+        <h5 class="text-xl">Second slide label</h5>
+        <p>
+          Some representative placeholder content for the second slide.
+        </p>
+      </div>
+    </div>
+    <div
+      class="relative float-left -mr-[100%] hidden w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-te-carousel-fade data-te-carousel-item>
+      <video class="w-full" autoplay loop muted>
+        <source src="https://tecdn.b-cdn.net/img/video/Agua-natural.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
+        <h5 class="text-xl">Third slide label</h5>
+        <p>
+          Some representative placeholder content for the third slide.
+        </p>
+      </div>
+    </div>
+  </div>
+  <button
+    class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+    type="button" data-te-target="#carouselExampleCaptions" data-te-slide="prev">
+    <span class="inline-block h-8 w-8">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="h-6 w-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </span>
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
+  </button>
+  <button
+    class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+    type="button" data-te-target="#carouselExampleCaptions" data-te-slide="next">
+    <span class="inline-block h-8 w-8">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="h-6 w-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </span>
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
+  </button>
+</div>
+    <script>
+      // Дополнительные скрипты, если необходимо
+    </script>
+  </div>
+
+  <script src="tw-elements.umd.min.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
